@@ -8,12 +8,17 @@ Shows [Airbnb Lottie](https://airbnb.io/lottie/) animations as the native splash
 
 > **Based on** [timbru31/cordova-plugin-lottie-splashscreen](https://github.com/timbru31/cordova-plugin-lottie-splashscreen) by Tim Brust. This fork adds Capacitor 8 support, Swift Package Manager for iOS, and updated native dependencies.
 
-## What's different in this fork (v1.0.0)
+## What's different in this fork (v1.0.1)
 
-- **Capacitor 8** support with iOS **Swift Package Manager** (`Package.swift`, `cordova-ios` 8.x)
+- **Capacitor 8** compatible as a **Cordova plugin** (required for Android native code to sync)
+- iOS **Swift Package Manager** via `plugin.xml` `package="swift"` + root `Package.swift` (CocoaPods fallback via `podspec` when the app uses Pods)
 - Updated native deps: **Lottie Android 6.7.x**, **lottie-spm 4.6.x**, current AndroidX
 - Capacitor-friendly JS bridge (`whenCordovaBridgeReady`)
 - Android Capacitor crash fix (`webView.getView()` for animation events)
+
+### Important: do not add a `capacitor` key to `package.json`
+
+Capacitor CLI treats any `"capacitor": { ... }` entry in `package.json` as a **native Capacitor plugin** and skips `plugin.xml` on all platforms. This fork has no `capacitor.android` implementation, so Android would silently lose Kotlin sources and Gradle deps. Keep the **`cordova`** block only; iOS SPM is wired through `plugin.xml` + `Package.swift` instead.
 
 ## Supported platforms
 
@@ -23,7 +28,7 @@ Shows [Airbnb Lottie](https://airbnb.io/lottie/) animations as the native splash
 | **iOS** | 15+ with cordova-ios **8+** or Capacitor 8 SPM |
 | **Android** | cordova-android **10+**, AndroidX, Kotlin |
 
-Pure Cordova projects without Capacitor 8 are still supported on v0.11, but this fork is primarily maintained for Capacitor 8 apps.
+Pure Cordova projects without Capacitor 8 are still supported; this fork is primarily maintained for Capacitor 8 apps.
 
 ## Installation
 
@@ -32,9 +37,11 @@ Pure Cordova projects without Capacitor 8 are still supported on v0.11, but this
 From GitHub:
 
 ```sh
-npm install github:gizmo0506/cordova-plugin-lottie-splashscreen
+npm install github:gizmo0506/cordova-plugin-lottie-splashscreen#v1.0.1
 npx cap sync
 ```
+
+After sync you should see **`Found 1 Cordova plugin`** for both Android and iOS. If the plugin is missing from that list, check that `package.json` has no top-level `"capacitor"` key.
 
 Or pin a local checkout:
 
