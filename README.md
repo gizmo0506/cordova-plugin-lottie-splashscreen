@@ -8,7 +8,7 @@ Shows [Airbnb Lottie](https://airbnb.io/lottie/) animations as the native splash
 
 > **Based on** [timbru31/cordova-plugin-lottie-splashscreen](https://github.com/timbru31/cordova-plugin-lottie-splashscreen) by Tim Brust. This fork adds Capacitor 8 support, Swift Package Manager for iOS, and updated native dependencies.
 
-## What's different in this fork (v0.11+)
+## What's different in this fork (v1.0.0)
 
 - **Capacitor 8** support with iOS **Swift Package Manager** (`Package.swift`, `cordova-ios` 8.x)
 - Updated native deps: **Lottie Android 6.7.x**, **lottie-spm 4.6.x**, current AndroidX

@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-lottie-splashscreen",
-  "version": "0.11.1",
+  "version": "1.0.0",
   "description": "Cordova plugin for Lottie splash screens — Capacitor 8 compatible (SPM, cordova-ios 8, Lottie 6.x)",
   "author": "Daya0506 <59557442+gizmo0506@users.noreply.github.com>",
   "license": "MIT",
