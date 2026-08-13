@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+platforms/
+plugins/
+yarn-error.log
+lottie-smoke-test/
+
+# Swift Package Manager build artifacts
+.build/
+.swiftpm/
+Package.resolved
